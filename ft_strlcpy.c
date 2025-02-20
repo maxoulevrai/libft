@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 17:18:42 by root              #+#    #+#             */
-/*   Updated: 2025/02/19 19:00:17 by root             ###   ########.fr       */
+/*   Updated: 2025/02/20 18:45:04 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t siz)
 {
 	size_t	srclen;
 	size_t	i;
-	
+
 	srclen = 0;
 	i = 0;
 	while (src[srclen])
@@ -35,7 +35,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t siz)
 // {
 // 	char	dst[10];
 // 	char	dst2[10];
-	
+
 // 	(void)ac;
 // 	printf("%ld\n", ft_strlcpy(dst, av[1], 10));
 // 	printf("%s\n", dst);

@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 15:37:56 by root              #+#    #+#             */
-/*   Updated: 2025/02/19 15:42:31 by root             ###   ########.fr       */
+/*   Updated: 2025/02/20 18:43:42 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	ft_isprint(int c)
 // int	main(void)
 // {
 // 	char	c = 31;
-	
+
 // 	printf("%d\n", ft_isprint(c));
 // 	printf("%d\n", isprint(c));
 // }

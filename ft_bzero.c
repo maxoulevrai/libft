@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 16:49:29 by root              #+#    #+#             */
-/*   Updated: 2025/02/19 16:58:46 by root             ###   ########.fr       */
+/*   Updated: 2025/02/20 18:43:00 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,16 +24,16 @@ void	ft_bzero(void *mem, size_t siz)
 	}
 }
 
-int	main(void)
-{
-	char	str1[10] = "alors";
-	char	str2[10] = "alors";
-	size_t	siz = 2;
-	
-	ft_bzero(str1, siz);
-	bzero(str2, siz);
-	
-	printf("%s\n", str1);
-	printf("%s\n", str2);
-	return (0);
-}
+// int	main(void)
+// {
+// 	char	str1[10] = "alors";
+// 	char	str2[10] = "alors";
+// 	size_t	siz = 2;
+
+// 	ft_bzero(str1, siz);
+// 	bzero(str2, siz);
+
+// 	printf("%s\n", str1);
+// 	printf("%s\n", str2);
+// 	return (0);
+// }

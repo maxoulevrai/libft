@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 18:58:13 by root              #+#    #+#             */
-/*   Updated: 2025/02/20 18:18:42 by root             ###   ########.fr       */
+/*   Updated: 2025/02/20 18:44:58 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t siz)
 	size_t	i;
 	size_t	src_len;
 	size_t	dst_len;
-		
+
 	i = 0;
 	src_len = ft_strlen(src);
 	dst_len = ft_strlen(dst);
