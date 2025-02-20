@@ -1,28 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/20 18:41:50 by root              #+#    #+#             */
-/*   Updated: 2025/02/20 19:05:51 by root             ###   ########.fr       */
+/*   Created: 2025/02/20 19:06:18 by root              #+#    #+#             */
+/*   Updated: 2025/02/20 19:20:36 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_tolower(int c)
+int	ft_strncmp(const char *s1, const char *s2, size_t siz)
 {
-	if (c >= 'A' && c <= 'Z')
-		c = c - 'A' + 'a';
-	return (c);
+	size_t	i;
+
+	if (siz == 0)
+		return (0);
+	i = 0;
+	while (s1[i] && s2[i] && i < siz - 1)
+	{
+		if (s1[i] != s2[i])
+			return (s1[i] - s2[i]);
+		i++;
+	}
+	return (s1[i] - s2[i]);
 }
 
-// int	main(void)
+// int main(int ac, char **av)
 // {
-// 	char	c = 'F';
-
-// 	printf("%c\n", ft_tolower(c));
+// 	(void)ac;
+// 	printf("%d\n", ft_strncmp(av[1], av[2], atoi(av[3])));
+// 	printf("%d\n", strncmp(av[1], av[2], atoi(av[3])));
 // 	return (0);
 // }

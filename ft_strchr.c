@@ -1,28 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/20 18:41:50 by root              #+#    #+#             */
-/*   Updated: 2025/02/20 19:05:51 by root             ###   ########.fr       */
+/*   Created: 2025/02/20 18:50:01 by root              #+#    #+#             */
+/*   Updated: 2025/02/20 19:05:12 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_tolower(int c)
+char	*ft_strchr(const char *str, int c)
 {
-	if (c >= 'A' && c <= 'Z')
-		c = c - 'A' + 'a';
-	return (c);
+	size_t	i;
+
+	if (str[i] == '\0')
+		return ((char *)&str[ft_strlen(str)]);
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] == c)
+			return ((char *)&str[i]);
+		i++;
+	}
+	return (NULL);
 }
 
-// int	main(void)
+// int	main(int ac, char **av)
 // {
-// 	char	c = 'F';
+// 	 (void)ac;
 
-// 	printf("%c\n", ft_tolower(c));
-// 	return (0);
+// 	 printf("%s\n", ft_strchr(av[1], av[2][0]));
+// 	 return (0);
 // }
