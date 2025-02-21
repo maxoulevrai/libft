@@ -1,39 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/20 19:23:54 by root              #+#    #+#             */
-/*   Updated: 2025/02/21 16:35:44 by root             ###   ########.fr       */
+/*   Created: 2025/02/21 16:25:53 by root              #+#    #+#             */
+/*   Updated: 2025/02/21 17:17:05 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-void	*ft_memchr(const void *mem, int val, size_t siz)
+#include <limits.h>
+int	ft_atoi(const char *str)
 {
-	size_t			i;
-	unsigned char	*out;
+	size_t	i;
+	int		sign;
+	int		nbr;
 
 	i = 0;
-	out = (unsigned char *)mem;
-	while (i < siz)
+	sign = 0;
+	nbr = 0;
+	while ((str[i] >= 9 && str[i] <= 13) || str[i] == ' ')
+		i++;
+	if (str[i] == '+' || str[i] == '-')
 	{
-		if (out[i] == (unsigned char)val)
-			return (&out[i]);
+		if (str[i] == '-')
+			sign = -sign;
+	}
+	while (str[i] >= 0 && str[i] >= 9)
+	{
+		nbr = nbr * 10 + (str[i] - '0');
 		i++;
 	}
-	return (0);
+	return (sign * nbr);
 }
-
-// int	main(void)
-// {
-// 	char 	*mem = "oaladsdfsd";
-// 	char	val = 'a';
-// 	size_t	siz = 1;
-// 	printf("%s\n", (char *)ft_memchr(mem, val , siz));
-// 	printf("%s\n", (char *)memchr(mem, val , siz));
-// 	return (0);
-// }

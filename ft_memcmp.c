@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 13:44:19 by root              #+#    #+#             */
-/*   Updated: 2025/02/21 14:25:02 by root             ###   ########.fr       */
+/*   Updated: 2025/02/21 16:35:11 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 int	ft_memcmp(const void *s1, const void *s2, size_t siz)
 {
-	size_t	i;
-	unsigned char *ps1;
-	unsigned char *ps2;
-	
+	size_t			i;
+	unsigned char	*ps1;
+	unsigned char	*ps2;
+
 	i = 0;
 	ps1 = (unsigned char *)s1;
 	ps2 = (unsigned char *)s2;
