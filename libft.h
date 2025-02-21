@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 18:36:30 by root              #+#    #+#             */
-/*   Updated: 2025/02/21 17:17:30 by root             ###   ########.fr       */
+/*   Updated: 2025/02/21 18:03:08 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 # include <stdlib.h>
 # include <stdio.h>
 
-# define UINT_MAX 2147483647
 
 int		ft_isalnum(int c);
 int		ft_isalpha(int c);
@@ -39,6 +38,7 @@ void	*ft_memmove(void *dest, const void *src, size_t siz);
 char	*ft_strchr(const char *str, int c);
 char	*ft_strrchr(const char *str, int c);
 char	*ft_strnstr(const char *haystack, const char *needle, size_t siz);
+char	*ft_substr(char const *haystack, unsigned int start, size_t siz);
 size_t	ft_strlen(const char *str);
 size_t	ft_strlcpy(char *dst, const char *src, size_t siz);
 #endif
