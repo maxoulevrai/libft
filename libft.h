@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 18:36:30 by root              #+#    #+#             */
-/*   Updated: 2025/02/21 18:03:08 by root             ###   ########.fr       */
+/*   Updated: 2025/02/21 23:23:02 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void	*ft_memcpy(void *dest, const void *src, size_t siz);
 void	*ft_memmove(void *dest, const void *src, size_t siz);
 char	*ft_strchr(const char *str, int c);
 char	*ft_strrchr(const char *str, int c);
+char	*ft_strjoin(const char *s1, const char *s2);
 char	*ft_strnstr(const char *haystack, const char *needle, size_t siz);
 char	*ft_substr(char const *haystack, unsigned int start, size_t siz);
 size_t	ft_strlen(const char *str);
