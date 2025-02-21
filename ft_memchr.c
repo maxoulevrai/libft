@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 19:23:54 by root              #+#    #+#             */
-/*   Updated: 2025/02/20 20:49:08 by root             ###   ########.fr       */
+/*   Updated: 2025/02/21 13:39:24 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,14 @@ void	*ft_memchr(const void *mem, int val, size_t siz)
 			return (&out[i]);
 		i++;
 	}
-	return (NULL);
+	return (0);
 }
 
 int	main(void)
 {
 	char 	*mem = "oaladsdfsd";
-	char	val = 'd';
-	size_t	siz = 4;
+	char	val = 'a';
+	size_t	siz = 1;
 
 	printf("%s\n", (char *)ft_memchr(mem, val , siz));
 	printf("%s\n", (char *)memchr(mem, val , siz));
