@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 13:44:19 by root              #+#    #+#             */
-/*   Updated: 2025/02/21 14:17:43 by root             ###   ########.fr       */
+/*   Updated: 2025/02/21 14:25:02 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,9 @@ int	ft_memcmp(const void *s1, const void *s2, size_t siz)
 
 // int	main(void)
 // {
-// 	int 	s1[6] = {1, 5, 3, 8, 6};
-// 	int 	s2[6] = {1, 8, 8, 8, 6};
-// 	size_t	siz = 5;
+// 	int 	s1[5] = {1, 5, 3, 8, 6};
+// 	int 	s2[5] = {1, 8, 8, 8, 6};
+// 	size_t	siz = 3;
 
 // 	printf("%d\n", ft_memcmp(s1, s2 , siz));
 // 	printf("%d\n", memcmp(s1, s2 , siz));
