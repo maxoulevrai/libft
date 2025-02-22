@@ -6,13 +6,13 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 23:23:21 by root              #+#    #+#             */
-/*   Updated: 2025/02/22 20:17:08 by root             ###   ########.fr       */
+/*   Updated: 2025/02/22 20:21:16 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		is_in_set(char c, char *set)
+int	is_in_set(char c, char *set)
 {
 	size_t	i;
 
@@ -55,14 +55,14 @@ char	*ft_strtrim(const char *str, const char *set)
 	return (trim);
 }
 
-int	main(void)
-{
-	char	*str = "bonjourothmanebonjour";
-	char	*set = "bonjour";
-	char	*trim = NULL;
+// int	main(void)
+// {
+// 	char	*str = "bonjourothmanebonjour";
+// 	char	*set = "bonjour";
+// 	char	*trim = NULL;
 
-	trim = ft_strtrim(str, set);
-	printf("%s\n", trim);
-	free(trim);
-	return (0);
-}
+// 	trim = ft_strtrim(str, set);
+// 	printf("%s\n", trim);
+// 	free(trim);
+// 	return (0);
+// }

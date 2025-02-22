@@ -6,12 +6,12 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 16:25:53 by root              #+#    #+#             */
-/*   Updated: 2025/02/21 17:17:05 by root             ###   ########.fr       */
+/*   Updated: 2025/02/22 20:20:14 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <limits.h>
+
 int	ft_atoi(const char *str)
 {
 	size_t	i;

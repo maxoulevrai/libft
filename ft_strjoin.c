@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 17:47:39 by root              #+#    #+#             */
-/*   Updated: 2025/02/21 23:21:19 by root             ###   ########.fr       */
+/*   Updated: 2025/02/22 20:21:05 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	*ft_strjoin(const char *s1, const char *s2)
 	char	*join;
 	size_t	i;
 	size_t	j;
-	
+
 	i = 0;
 	j = 0;
 	join = NULL;
@@ -28,26 +28,26 @@ char	*ft_strjoin(const char *s1, const char *s2)
 		return (NULL);
 	while (s1[i])
 	{
-			join[i] = s1[i];
-			i++;
+		join[i] = s1[i];
+		i++;
 	}
 	while (s2[j])
 	{
-			join[i + j] = s2[j];
-			j++;
+		join[i + j] = s2[j];
+		j++;
 	}
 	join[i + j] = '\0';
 	return (join);
 }
 
-int	main(void)
-{
-	char	*s1 = "oeoeoe";
-	char	*s2 = "";
-	char	*join = NULL;
+// int	main(void)
+// {
+// 	char	*s1 = "oeoeoe";
+// 	char	*s2 = "";
+// 	char	*join = NULL;
 
-	join = ft_strjoin(s1, s2);
-	printf("%s\n", join);
-	free(join);
-	return (0);
-}
+// 	join = ft_strjoin(s1, s2);
+// 	printf("%s\n", join);
+// 	free(join);
+// 	return (0);
+// }

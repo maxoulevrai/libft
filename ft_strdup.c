@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 17:03:42 by root              #+#    #+#             */
-/*   Updated: 2025/02/21 17:09:52 by root             ###   ########.fr       */
+/*   Updated: 2025/02/22 20:19:53 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,17 +33,17 @@ char	*ft_strdup(const char *src)
 	return (dst);
 }
 
-int	main(void)
-{
-	char	*src = "oeoeoe";
-	char	*dst = NULL;
-	char	*dst2 = NULL;
+// int	main(void)
+// {
+// 	char	*src = "oeoeoe";
+// 	char	*dst = NULL;
+// 	char	*dst2 = NULL;
 
-	dst = ft_strdup(src);
-	dst2 = ft_strdup(src);
-	printf("%s\n", dst);
-	printf("%s\n", dst2);
-	free(dst);
-	free(dst2);
-	return (0);
-}
+// 	dst = ft_strdup(src);
+// 	dst2 = ft_strdup(src);
+// 	printf("%s\n", dst);
+// 	printf("%s\n", dst2);
+// 	free(dst);
+// 	free(dst2);
+// 	return (0);
+// }
