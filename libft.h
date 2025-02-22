@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 18:36:30 by root              #+#    #+#             */
-/*   Updated: 2025/02/22 20:20:27 by root             ###   ########.fr       */
+/*   Updated: 2025/02/22 20:50:52 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ int		ft_isascii(int c);
 int		ft_isdigit(int c);
 int		ft_isprint(int c);
 int		ft_toupper(int c);
+int		ft_tolower(int c);
 int		ft_atoi(const char *str);
 int		ft_strncmp(const char *s1, const char *s2, size_t siz);
 int		ft_memcmp(const void *s1, const void *s2, size_t siz);
@@ -41,7 +42,9 @@ char	*ft_strjoin(const char *s1, const char *s2);
 char	*ft_strtrim(const char *str, const char *set);
 char	*ft_strnstr(const char *haystack, const char *needle, size_t siz);
 char	*ft_substr(char const *haystack, unsigned int start, size_t siz);
+char	**ft_split(char const *str, char sep);
 size_t	ft_strlen(const char *str);
 size_t	ft_strlcpy(char *dst, const char *src, size_t siz);
+size_t	ft_strlcat(char *dst, const char *src, size_t siz);
 
 #endif
