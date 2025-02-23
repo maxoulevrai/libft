@@ -6,27 +6,27 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 14:36:00 by root              #+#    #+#             */
-/*   Updated: 2025/02/21 16:38:07 by root             ###   ########.fr       */
+/*   Updated: 2025/02/23 16:38:32 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *haystack, const char *needle, size_t siz)
+char	*ft_strnstr(const char *big, const char *small, size_t siz)
 {
 	size_t	i;
 	size_t	j;
 
 	i = 0;
-	if (needle == NULL)
-		return ((char *)haystack);
-	while (haystack[i] && i < siz)
+	if (small == NULL)
+		return ((char *)big);
+	while (big[i] && i < siz)
 	{
 		j = 0;
-		while (haystack[i + j] == needle[j] && haystack[i + j])
+		while (big[i + j] == small[j] && big[i + j] && i + j < siz)
 			j++;
-		if (needle[j] == '\0')
-			return ((char *)&haystack[i + j]);
+		if (small[j] == '\0')
+			return ((char *)&big[i]);
 		i++;
 	}
 	return (NULL);
@@ -38,7 +38,7 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t siz)
 // {
 // 	size_t	siz = 5;
 // 	(void)ac;
-// 	printf("%p\n", ft_strnstr(av[1], av[2], siz));
-// 	printf("%p\n", strnstr(av[1], av[2], siz));
+// 	printf("%s\n", ft_strnstr(av[1], av[2], siz));
+// 	printf("%s\n", strnstr(av[1], av[2], siz));
 // 	return (0);
 // }

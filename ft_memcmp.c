@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 13:44:19 by root              #+#    #+#             */
-/*   Updated: 2025/02/21 16:35:11 by root             ###   ########.fr       */
+/*   Updated: 2025/02/23 16:19:54 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	ft_memcmp(const void *s1, const void *s2, size_t siz)
 	ps2 = (unsigned char *)s2;
 	if (siz == 0)
 		return (0);
-	while (i < siz)
+	while (i < siz - 1)
 	{
 		if (ps1[i] != ps2[i])
 			return (ps1[i] - ps2[i]);
@@ -34,9 +34,9 @@ int	ft_memcmp(const void *s1, const void *s2, size_t siz)
 
 // int	main(void)
 // {
-// 	int 	s1[5] = {1, 5, 3, 8, 6};
-// 	int 	s2[5] = {1, 8, 8, 8, 6};
-// 	size_t	siz = 3;
+// 	char	*s1 = "abcdefghij";
+// 	char	*s2 = "abcdefgxyz";
+// 	size_t	siz = 7;
 
 // 	printf("%d\n", ft_memcmp(s1, s2 , siz));
 // 	printf("%d\n", memcmp(s1, s2 , siz));

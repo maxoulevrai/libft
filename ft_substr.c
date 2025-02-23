@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 17:34:47 by root              #+#    #+#             */
-/*   Updated: 2025/02/22 20:21:27 by root             ###   ########.fr       */
+/*   Updated: 2025/02/23 16:19:42 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ char	*ft_substr(char const *haystack, unsigned int start, size_t siz)
 
 // int	main(void)
 // {
-// 	char	*big = "alors la la dindin";
+// 	char	*big = "";
 // 	char	*sub = NULL;
 
 // 	sub = ft_substr(big, 5, 5);

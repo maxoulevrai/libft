@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 13:46:07 by root              #+#    #+#             */
-/*   Updated: 2025/02/23 14:32:19 by root             ###   ########.fr       */
+/*   Updated: 2025/02/23 14:56:50 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@
 // 	return (c);
 // }
 
-char *ft_strmapi(char const *str, char (*fct)(unsigned int, char))
+char	*ft_strmapi(char const *str, char (*fct)(unsigned int, char))
 {
 	unsigned int	i;
-	char	*map;
-	
+	char			*map;
+
 	i = 0;
 	map = NULL;
 	if (!str)

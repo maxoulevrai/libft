@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 23:23:21 by root              #+#    #+#             */
-/*   Updated: 2025/02/22 20:21:16 by root             ###   ########.fr       */
+/*   Updated: 2025/02/23 16:49:57 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,8 @@ char	*ft_strtrim(const char *str, const char *set)
 
 // int	main(void)
 // {
-// 	char	*str = "bonjourothmanebonjour";
-// 	char	*set = "bonjour";
+// 	char	*str = "lorem \n ipsum \t dolor \n sit \t amet";
+// 	char	*set = " ";
 // 	char	*trim = NULL;
 
 // 	trim = ft_strtrim(str, set);

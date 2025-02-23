@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 16:59:51 by root              #+#    #+#             */
-/*   Updated: 2025/02/20 18:43:50 by root             ###   ########.fr       */
+/*   Updated: 2025/02/23 15:44:00 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	*ft_memcpy(void *dest, const void *src, size_t siz)
 	size_t	i;
 
 	i = 0;
+	if (!dest && !src)
+		return (NULL);
 	while (i < siz)
 	{
 		((unsigned char *)dest)[i] = ((unsigned char *)src)[i];
@@ -27,8 +29,8 @@ void	*ft_memcpy(void *dest, const void *src, size_t siz)
 
 // int	main(void)
 // {
-// 	char	src[10] = "alors";
-// 	char	dst1[10] = "";
+// 	char	src[10] = NULL;
+// 	char	dst1[10] = NULL;
 // 	char	dst2[10] = "";
 // 	size_t	siz = 5;
 

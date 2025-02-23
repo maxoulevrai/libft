@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 14:32:30 by root              #+#    #+#             */
-/*   Updated: 2025/02/23 14:46:37 by root             ###   ########.fr       */
+/*   Updated: 2025/02/23 15:53:45 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static size_t	ft_nbrlen(long nb)
 		nb /= 10;
 	}
 	return (len);
-}	
+}
 
 char	*ft_itoa(int n)
 {
@@ -32,7 +32,6 @@ char	*ft_itoa(int n)
 	size_t	len;
 	int		neg;
 
-	convert = NULL;
 	nbr = (long)n;
 	neg = 0;
 	if (nbr < 0)
@@ -44,6 +43,7 @@ char	*ft_itoa(int n)
 	convert = malloc(sizeof(char) * len + 1);
 	if (!convert)
 		return (NULL);
+	convert[len + 1] = '\0';
 	while (len--)
 	{
 		convert[len] = nbr % 10 + '0';
@@ -58,7 +58,7 @@ char	*ft_itoa(int n)
 // {
 // 	char	*str = NULL;
 // 	int 	nbr = -2147483648;
-	
+
 // 	str = ft_itoa(nbr);
 // 	printf("%s\n", str);
 // 	free(str);

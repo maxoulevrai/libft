@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 17:03:42 by root              #+#    #+#             */
-/*   Updated: 2025/02/22 20:19:53 by root             ###   ########.fr       */
+/*   Updated: 2025/02/23 15:52:18 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@ char	*ft_strdup(const char *src)
 
 	dst = NULL;
 	i = 0;
-	if (!src)
-		return (NULL);
 	dst = malloc(sizeof(char) * ft_strlen(src) + 1);
 	if (!dst)
 		return (NULL);
