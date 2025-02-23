@@ -6,13 +6,13 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 20:22:56 by root              #+#    #+#             */
-/*   Updated: 2025/02/22 20:56:03 by root             ###   ########.fr       */
+/*   Updated: 2025/02/23 13:29:07 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	get_word_len(char *str, char sep)
+size_t	gwl(char *str, char sep)
 {
 	size_t	i;
 
@@ -22,7 +22,7 @@ size_t	get_word_len(char *str, char sep)
 	return (i);
 }
 
-size_t	get_word_count(char *str, char sep)
+size_t	gtl(char *str, char sep)
 {
 	size_t	i;
 	size_t	count;
@@ -36,7 +36,7 @@ size_t	get_word_count(char *str, char sep)
 		if (str[i])
 		{
 			count++;
-			i += get_word_len(&str[i], sep);
+			i += gwl(&str[i], sep);
 			i++;
 		}
 	}
@@ -52,7 +52,7 @@ char	*ft_strndup(char *str, size_t siz)
 	dup = NULL;
 	if (!str && !siz)
 		return (NULL);
-	dup = malloc(sizeof(char) *	siz + 1);
+	dup = malloc(sizeof(char) * siz + 1);
 	if (!dup)
 		return (NULL);
 	while (i < siz && str[i])
@@ -75,7 +75,7 @@ char	**ft_split(char const *str, char sep)
 	j = 0;
 	if (!str && !sep)
 		return (NULL);
-	split = malloc(sizeof(char *) * get_word_count((char *)str, sep) + 1);
+	split = malloc(sizeof(char *) * gtl((char *)str, sep) + 1);
 	if (!split)
 		return (NULL);
 	while (str[i])
@@ -84,8 +84,8 @@ char	**ft_split(char const *str, char sep)
 			i++;
 		if (str[i])
 		{
-			split[j] = ft_strndup((char *)&str[i], get_word_len((char *)&str[i], sep));
-			i += get_word_len((char *)&str[i], sep);
+			split[j] = ft_strndup((char *)&str[i], gwl((char *)&str[i], sep));
+			i += gwl((char *)&str[i], sep);
 			j++;
 		}
 	}

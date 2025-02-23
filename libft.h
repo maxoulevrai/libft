@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 18:36:30 by root              #+#    #+#             */
-/*   Updated: 2025/02/22 20:50:52 by root             ###   ########.fr       */
+/*   Updated: 2025/02/23 13:47:22 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,10 @@ int		ft_atoi(const char *str);
 int		ft_strncmp(const char *s1, const char *s2, size_t siz);
 int		ft_memcmp(const void *s1, const void *s2, size_t siz);
 void	ft_bzero(void *mem, size_t siz);
+void	ft_putchar_fd(char c, int fd);
+void	ft_putstr_fd(char *str, int fd);
+void	ft_putendl_fd(char *str, int fd);
+void	ft_putnbr_fd(int n, int fd);
 void	*ft_calloc(size_t nmemb, size_t siz);
 void	*ft_memset(void *mem, int val, size_t siz);
 void	*ft_memchr(const void *mem, int val, size_t siz);
