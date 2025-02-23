@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 14:36:00 by root              #+#    #+#             */
-/*   Updated: 2025/02/23 16:38:32 by root             ###   ########.fr       */
+/*   Updated: 2025/02/23 20:59:01 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ char	*ft_strnstr(const char *big, const char *small, size_t siz)
 	while (big[i] && i < siz)
 	{
 		j = 0;
-		while (big[i + j] == small[j] && big[i + j] && i + j < siz)
+		while (big[i + j] == small[j] && small[j] && i + j < siz)
 			j++;
-		if (small[j] == '\0')
+		if (!small[j])
 			return ((char *)&big[i]);
 		i++;
 	}
@@ -34,11 +34,13 @@ char	*ft_strnstr(const char *big, const char *small, size_t siz)
 
 // #include <bsd/string.h>
 
-// int	main(int ac, char **av)
+// int	main(void)
 // {
-// 	size_t	siz = 5;
-// 	(void)ac;
-// 	printf("%s\n", ft_strnstr(av[1], av[2], siz));
-// 	printf("%s\n", strnstr(av[1], av[2], siz));
+// 	size_t	siz = 0;
+// 	char	*s1 = "";
+// 	char	*s2 = "";
+
+// 	printf("%p\n", ft_strnstr(s1, s2, siz));
+// 	printf("%s\n", strnstr(s1, s2, siz));
 // 	return (0);
 // }

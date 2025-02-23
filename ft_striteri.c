@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 14:48:30 by root              #+#    #+#             */
-/*   Updated: 2025/02/23 15:32:11 by root             ###   ########.fr       */
+/*   Updated: 2025/02/23 19:48:32 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_striteri(char *str, void (*fct)(unsigned int, char*))
 	i = 0;
 	while (str[i])
 	{
-		fct(i, str);
+		fct(i, &str[i]);
 		i++;
 	}
 }

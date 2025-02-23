@@ -6,11 +6,23 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 23:23:21 by root              #+#    #+#             */
-/*   Updated: 2025/02/23 16:49:57 by root             ###   ########.fr       */
+/*   Updated: 2025/02/23 21:08:21 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+size_t	get_len(char *str)
+{
+	size_t	i;
+
+	i = 0;
+	if (!str[i])
+		return (1);
+	while (str[i])
+		i++;
+	return (i);
+}
 
 int	is_in_set(char c, char *set)
 {
@@ -35,14 +47,14 @@ char	*ft_strtrim(const char *str, const char *set)
 
 	i = 0;
 	start = 0;
-	end = ft_strlen(str) - 1;
+	end = get_len((char *)str) - 1;
 	while (str[start] && is_in_set(str[start], (char *)set))
 		start++;
 	while (end > start && is_in_set(str[end], (char *)set))
 		end--;
 	if (!str && !set)
 		return (NULL);
-	trim = malloc (sizeof(char) * end - start + 1);
+	trim = malloc (sizeof(char) * end - start + 2);
 	if (!trim)
 		return (NULL);
 	while (start <= end)
@@ -57,8 +69,8 @@ char	*ft_strtrim(const char *str, const char *set)
 
 // int	main(void)
 // {
-// 	char	*str = "lorem \n ipsum \t dolor \n sit \t amet";
-// 	char	*set = " ";
+// 	char	*str = "";
+// 	char	*set = "";
 // 	char	*trim = NULL;
 
 // 	trim = ft_strtrim(str, set);

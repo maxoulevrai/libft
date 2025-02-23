@@ -6,16 +6,18 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 14:32:30 by root              #+#    #+#             */
-/*   Updated: 2025/02/23 15:53:45 by root             ###   ########.fr       */
+/*   Updated: 2025/02/23 20:11:19 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t	ft_nbrlen(long nb)
+size_t	ft_nbrlen(long nb)
 {
 	size_t	len;
 
+	if (nb == 0)
+		return (1);
 	len = 0;
 	while (nb > 0)
 	{
@@ -43,7 +45,7 @@ char	*ft_itoa(int n)
 	convert = malloc(sizeof(char) * len + 1);
 	if (!convert)
 		return (NULL);
-	convert[len + 1] = '\0';
+	convert[len] = '\0' && len--;
 	while (len--)
 	{
 		convert[len] = nbr % 10 + '0';
@@ -57,9 +59,8 @@ char	*ft_itoa(int n)
 // int	main(void)
 // {
 // 	char	*str = NULL;
-// 	int 	nbr = -2147483648;
 
-// 	str = ft_itoa(nbr);
+// 	str = ft_itoa(0);
 // 	printf("%s\n", str);
 // 	free(str);
 // 	return (0);

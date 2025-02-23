@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 20:22:56 by root              #+#    #+#             */
-/*   Updated: 2025/02/23 13:29:07 by root             ###   ########.fr       */
+/*   Updated: 2025/02/23 21:10:18 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ size_t	gtl(char *str, char sep)
 	count = 0;
 	while (str[i])
 	{
-		while (str[i] == sep && str[i])
+		while (str[i] && str[i] == sep)
 			i++;
 		if (str[i])
 		{
@@ -43,14 +43,14 @@ size_t	gtl(char *str, char sep)
 	return (count);
 }
 
-char	*ft_strndup(char *str, size_t siz)
+char	*oe(char *str, size_t siz)
 {
 	size_t	i;
 	char	*dup;
 
 	i = 0;
 	dup = NULL;
-	if (!str && !siz)
+	if (!str)
 		return (NULL);
 	dup = malloc(sizeof(char) * siz + 1);
 	if (!dup)
@@ -70,10 +70,9 @@ char	**ft_split(char const *str, char sep)
 	size_t	i;
 	size_t	j;
 
-	split = NULL;
 	i = 0;
 	j = 0;
-	if (!str && !sep)
+	if (!str || !sep)
 		return (NULL);
 	split = malloc(sizeof(char *) * gtl((char *)str, sep) + 1);
 	if (!split)
@@ -84,7 +83,7 @@ char	**ft_split(char const *str, char sep)
 			i++;
 		if (str[i])
 		{
-			split[j] = ft_strndup((char *)&str[i], gwl((char *)&str[i], sep));
+			split[j] = oe((char *)&str[i], gwl((char *)&str[i], sep));
 			i += gwl((char *)&str[i], sep);
 			j++;
 		}
@@ -95,8 +94,8 @@ char	**ft_split(char const *str, char sep)
 
 // int	main(void)
 // {
-// 	char	*str = "alors la c pas vrai";
-// 	char	sep = ' ';
+// 	char	*str = "";
+// 	char	sep = 'z';
 // 	char	**split = NULL;
 // 	size_t	i = 0;
 
