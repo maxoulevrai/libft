@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 14:36:00 by root              #+#    #+#             */
-/*   Updated: 2025/02/23 20:59:01 by root             ###   ########.fr       */
+/*   Updated: 2025/02/24 03:38:20 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,20 @@
 char	*ft_strnstr(const char *big, const char *small, size_t siz)
 {
 	size_t	i;
-	size_t	j;
+	size_t	tmp;
 
 	i = 0;
-	if (small == NULL)
+	if (*small == '\0')
 		return ((char *)big);
 	while (big[i] && i < siz)
 	{
-		j = 0;
-		while (big[i + j] == small[j] && small[j] && i + j < siz)
-			j++;
-		if (!small[j])
-			return ((char *)&big[i]);
+		tmp = 0;
+		while (i + tmp < siz && big[i + tmp] == small[tmp])
+		{
+			tmp++;
+			if (!small[tmp])
+				return ((char *)&big[i]);
+		}
 		i++;
 	}
 	return (NULL);

@@ -6,25 +6,13 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 23:23:21 by root              #+#    #+#             */
-/*   Updated: 2025/02/23 21:08:21 by root             ###   ########.fr       */
+/*   Updated: 2025/02/24 03:19:56 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	get_len(char *str)
-{
-	size_t	i;
-
-	i = 0;
-	if (!str[i])
-		return (1);
-	while (str[i])
-		i++;
-	return (i);
-}
-
-int	is_in_set(char c, char *set)
+int	is_in_set(char c, const char *set)
 {
 	size_t	i;
 
@@ -45,19 +33,19 @@ char	*ft_strtrim(const char *str, const char *set)
 	size_t	start;
 	size_t	end;
 
-	i = 0;
-	start = 0;
-	end = get_len((char *)str) - 1;
-	while (str[start] && is_in_set(str[start], (char *)set))
-		start++;
-	while (end > start && is_in_set(str[end], (char *)set))
-		end--;
 	if (!str && !set)
 		return (NULL);
-	trim = malloc (sizeof(char) * end - start + 2);
+	start = 0;
+	end = ft_strlen(str);
+	while (str[start] && is_in_set(str[start], set))
+		start++;
+	while (end > start && is_in_set(str[end - 1], set))
+		end--;
+	trim = malloc (sizeof(char) * (end - start + 1));
 	if (!trim)
 		return (NULL);
-	while (start <= end)
+	i = 0;
+	while (start < end)
 	{
 		trim[i] = str[start];
 		start++;

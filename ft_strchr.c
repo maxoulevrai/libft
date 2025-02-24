@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 18:50:01 by root              #+#    #+#             */
-/*   Updated: 2025/02/23 16:34:55 by root             ###   ########.fr       */
+/*   Updated: 2025/02/24 04:19:47 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 char	*ft_strchr(const char *str, int c)
 {
 	size_t	i;
+	char	char_c;
 
-	if (c == '\0')
-		return ((char *)&str[ft_strlen(str)]);
+	char_c = (unsigned char)c;
 	i = 0;
 	while (str[i])
 	{
@@ -25,13 +25,13 @@ char	*ft_strchr(const char *str, int c)
 			return ((char *)&str[i]);
 		i++;
 	}
-	return (0);
+	if (char_c == '\0')
+		return ((char *)&str[i]);
+	return (NULL);
 }
 
-// int	main(int ac, char **av)
+// int	main(void)
 // {
-// 	 (void)ac;
-
-// 	 printf("%s\n", ft_strchr(av[1], av[2][0]));
+// 	 printf("%s\n", ft_strchr("teste", 'e'));
 // 	 return (0);
 // }

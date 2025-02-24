@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 16:39:20 by root              #+#    #+#             */
-/*   Updated: 2025/02/23 21:01:12 by root             ###   ########.fr       */
+/*   Updated: 2025/02/24 03:10:07 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,12 @@ void	*ft_calloc(size_t nmemb, size_t siz)
 	unsigned char	*mem;
 
 	mem = NULL;
-	if (nmemb && siz && nmemb > (UINT_MAX / siz))
+	if (siz && nmemb > (UINT_MAX / siz))
 		return (NULL);
-	if (nmemb == 0 || siz == 0)
-	{
-		mem = malloc(sizeof(unsigned char));
-		return (mem);
-	}
 	mem = malloc(nmemb * siz);
 	if (!mem)
 		return (NULL);
-	ft_bzero(mem, nmemb);
+	ft_bzero(mem, nmemb * siz);
 	return (mem);
 }
 

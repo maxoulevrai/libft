@@ -6,23 +6,23 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 20:22:56 by root              #+#    #+#             */
-/*   Updated: 2025/02/23 21:10:18 by root             ###   ########.fr       */
+/*   Updated: 2025/02/24 03:18:26 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	gwl(char *str, char sep)
+size_t	word_len(char *str, char sep)
 {
 	size_t	i;
 
 	i = 0;
-	while (str[i] != sep && str[i])
+	while (str[i] && str[i] != sep)
 		i++;
 	return (i);
 }
 
-size_t	gtl(char *str, char sep)
+size_t	tab_len(char *str, char sep)
 {
 	size_t	i;
 	size_t	count;
@@ -36,26 +36,24 @@ size_t	gtl(char *str, char sep)
 		if (str[i])
 		{
 			count++;
-			i += gwl(&str[i], sep);
-			i++;
+			i += word_len(&str[i], sep);
 		}
 	}
 	return (count);
 }
 
-char	*oe(char *str, size_t siz)
+char	*ft_strldup(char *str, size_t siz)
 {
-	size_t	i;
 	char	*dup;
+	size_t	i;
 
 	i = 0;
-	dup = NULL;
-	if (!str)
+	if (!str || !siz)
 		return (NULL);
-	dup = malloc(sizeof(char) * siz + 1);
+	dup = malloc(sizeof(char) * (siz + 1));
 	if (!dup)
 		return (NULL);
-	while (i < siz && str[i])
+	while (i < siz)
 	{
 		dup[i] = str[i];
 		i++;
@@ -67,24 +65,24 @@ char	*oe(char *str, size_t siz)
 char	**ft_split(char const *str, char sep)
 {
 	char	**split;
+	char	*cast;
 	size_t	i;
 	size_t	j;
 
 	i = 0;
 	j = 0;
-	if (!str || !sep)
-		return (NULL);
-	split = malloc(sizeof(char *) * gtl((char *)str, sep) + 1);
+	cast = (char *)str;
+	split = malloc(sizeof(char *) * (tab_len(cast, sep) + 1));
 	if (!split)
 		return (NULL);
 	while (str[i])
 	{
-		while (str[i] == sep && str[i])
+		while (str[i] && str[i] == sep)
 			i++;
 		if (str[i])
 		{
-			split[j] = oe((char *)&str[i], gwl((char *)&str[i], sep));
-			i += gwl((char *)&str[i], sep);
+			split[j] = ft_strldup(&cast[i], word_len(&cast[i], sep));
+			i += word_len(&cast[i], sep);
 			j++;
 		}
 	}
