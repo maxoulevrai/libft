@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 20:22:56 by root              #+#    #+#             */
-/*   Updated: 2025/03/03 03:51:06 by root             ###   ########.fr       */
+/*   Updated: 2025/03/12 14:36:45 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,12 +61,13 @@ char	*ft_strldup(char *str, size_t siz)
 	dup[i] = '\0';
 	return (dup);
 }
-char	**ft_free(char **split, int top)
+
+char	**free_split(char **split, size_t top)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
-	while (i <= top)
+	while (i < top)
 	{
 		free(split[i]);
 		i++;
@@ -81,68 +82,48 @@ char	**ft_split(char const *str, char sep)
 	size_t	i;
 	size_t	j;
 
-	i = 0;
-	j = 0;
 	if (!str || !sep)
 		return (NULL);
-	split = malloc(sizeof(char *) * (tab_len((char *)&str[i], sep) + 1));
+	split = malloc(sizeof(char *) * (tab_len((char *)str, sep) + 1));
 	if (!split)
 		return (NULL);
+	i = 0;
+	j = 0;
 	while (str[i])
 	{
 		while (str[i] && str[i] == sep)
 			i++;
 		if (str[i])
 		{
-			split[j] = ft_strldup((char *)&str[i], word_len((char *)&str[i], sep));
-			if (split[j] == NULL)
-				return (ft_free(split, j));
-			i += word_len((char *)&str[i], sep) && j++;
+			split[j++] = ft_strldup((char *)&str[i], word_len((char *)&str[i], sep));
+			if (!split[j])
+				return (free_split(split, j), NULL);
+			i += word_len((char *)&str[i], sep);
 		}
 	} 
 	split[j] = NULL;
 	return (split);
 }
 
-// int	main(void)
-// {
-// 	char	*str = "";
-// 	char	sep = 'z';
-// 	char	**split = NULL;
-// 	size_t	i = 0;
+int	main(void)
+{
+	char	*str = "hello!";
+	char	sep = ' ';
+	char	**split = NULL;
+	size_t	i = 0;
 
-// 	split = ft_split(str, sep);
-// 	while (split[i])
-// 	{
-// 		printf("%s\n", split[i]);
-// 		i++;
-// 	}
-// 	i = 0;
-// 	while (split[i])
-// 	{
-// 		free(split[i]);
-// 		i++;
-// 	}
-// 	free(split);
-// 	return (0);
-// }
-
-// int main(int ac, char **av)
-// {
-// 	char **split = ft_split(NULL, 'a');
-	
-// 	int i = 0;
-	// while (split[i])
-	// {
-	// 	printf("%s\n", split[i]);
-	// 	i++;
-	// }
-	// i = 0;
-	// while (split[i])
-	// {
-	// 	free(split[i]);
-	// 	i++;
-	// }
-	// free(split);
-// 	return (0);
-// }
+	split = ft_split(str, sep);
+	while (split[i])
+	{
+		printf("%s\n", split[i]);
+		i++;
+	}
+	i = 0;
+	while (split[i])
+	{
+		free(split[i]);
+		i++;
+	}
+	free(split);
+	return (0);
+}
