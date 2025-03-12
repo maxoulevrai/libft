@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 20:22:56 by root              #+#    #+#             */
-/*   Updated: 2025/02/24 03:18:26 by root             ###   ########.fr       */
+/*   Updated: 2025/03/03 03:51:06 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,18 +61,31 @@ char	*ft_strldup(char *str, size_t siz)
 	dup[i] = '\0';
 	return (dup);
 }
+char	**ft_free(char **split, int top)
+{
+	int	i;
+
+	i = 0;
+	while (i <= top)
+	{
+		free(split[i]);
+		i++;
+	}
+	free(split);
+	return (NULL);
+}
 
 char	**ft_split(char const *str, char sep)
 {
 	char	**split;
-	char	*cast;
 	size_t	i;
 	size_t	j;
 
 	i = 0;
 	j = 0;
-	cast = (char *)str;
-	split = malloc(sizeof(char *) * (tab_len(cast, sep) + 1));
+	if (!str || !sep)
+		return (NULL);
+	split = malloc(sizeof(char *) * (tab_len((char *)&str[i], sep) + 1));
 	if (!split)
 		return (NULL);
 	while (str[i])
@@ -81,11 +94,12 @@ char	**ft_split(char const *str, char sep)
 			i++;
 		if (str[i])
 		{
-			split[j] = ft_strldup(&cast[i], word_len(&cast[i], sep));
-			i += word_len(&cast[i], sep);
-			j++;
+			split[j] = ft_strldup((char *)&str[i], word_len((char *)&str[i], sep));
+			if (split[j] == NULL)
+				return (ft_free(split, j));
+			i += word_len((char *)&str[i], sep) && j++;
 		}
-	}
+	} 
 	split[j] = NULL;
 	return (split);
 }
@@ -110,5 +124,25 @@ char	**ft_split(char const *str, char sep)
 // 		i++;
 // 	}
 // 	free(split);
+// 	return (0);
+// }
+
+// int main(int ac, char **av)
+// {
+// 	char **split = ft_split(NULL, 'a');
+	
+// 	int i = 0;
+	// while (split[i])
+	// {
+	// 	printf("%s\n", split[i]);
+	// 	i++;
+	// }
+	// i = 0;
+	// while (split[i])
+	// {
+	// 	free(split[i]);
+	// 	i++;
+	// }
+	// free(split);
 // 	return (0);
 // }

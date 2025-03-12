@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 23:23:21 by root              #+#    #+#             */
-/*   Updated: 2025/02/24 03:19:56 by root             ###   ########.fr       */
+/*   Updated: 2025/03/07 23:57:48 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,14 +55,14 @@ char	*ft_strtrim(const char *str, const char *set)
 	return (trim);
 }
 
-// int	main(void)
-// {
-// 	char	*str = "";
-// 	char	*set = "";
-// 	char	*trim = NULL;
+int	main(void)
+{
+	char	*str = "alorsothmanealors";
+	char	*set = "srola";
+	char	*trim = NULL;
 
-// 	trim = ft_strtrim(str, set);
-// 	printf("%s\n", trim);
-// 	free(trim);
-// 	return (0);
-// }
+	trim = ft_strtrim(str, set);
+	printf("%s\n", trim);
+	free(trim);
+	return (0);
+}
