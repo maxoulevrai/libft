@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 20:22:56 by root              #+#    #+#             */
-/*   Updated: 2025/03/12 14:36:45 by root             ###   ########.fr       */
+/*   Updated: 2025/03/14 03:57:53 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,8 @@ char	**free_split(char **split, size_t top)
 	size_t	i;
 
 	i = 0;
+	if (!split[i] || !split)
+		return (NULL);
 	while (i < top)
 	{
 		free(split[i]);
@@ -95,35 +97,37 @@ char	**ft_split(char const *str, char sep)
 			i++;
 		if (str[i])
 		{
-			split[j++] = ft_strldup((char *)&str[i], word_len((char *)&str[i], sep));
+			split[j] = ft_strldup((char *)&str[i], word_len((char *)&str[i], sep));
 			if (!split[j])
-				return (free_split(split, j), NULL);
+			{
+				free_split(split, j);
+				return (NULL);
+			}
 			i += word_len((char *)&str[i], sep);
+			j++;
 		}
 	} 
 	split[j] = NULL;
 	return (split);
 }
 
-int	main(void)
-{
-	char	*str = "hello!";
-	char	sep = ' ';
-	char	**split = NULL;
-	size_t	i = 0;
+// int	main(void)
+// {
+// 	char	**split = NULL;
+// 	size_t	i = 0;
 
-	split = ft_split(str, sep);
-	while (split[i])
-	{
-		printf("%s\n", split[i]);
-		i++;
-	}
-	i = 0;
-	while (split[i])
-	{
-		free(split[i]);
-		i++;
-	}
-	free(split);
-	return (0);
-}
+// 	split = ft_split("hello!", ' ');
+// 	while (split[i])
+// 	{
+// 		printf("%s\n", split[i]);
+// 		i++;
+// 	}
+// 	i = 0;
+// 	while (split[i])
+// 	{
+// 		free(split[i]);
+// 		i++;
+// 	}
+// 	free(split);
+// 	return (0);
+// }

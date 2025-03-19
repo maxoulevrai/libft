@@ -40,10 +40,20 @@ FILES	=	ft_atoi \
 			ft_tolower \
 			ft_toupper \
 
+BONUS_FILES	=	ft_lstadd_back \
+				ft_lstadd_front \
+				ft_lstlast \
+				ft_lstnew \
+				ft_lstsize \
+
 SRCS_DIR = ./
 SRCS = $(addprefix $(SRCS_DIR), $(addsuffix .c, $(FILES)))
-OBJS	= ${SRCS:.c=.o}
+BONUS_DIR = ./bonus/
+BONUS = $(addprefix $(BONUS_DIR), $(addsuffix .c, $(BONUS_FILES)))
 
+TOUT = $(SRCS) $(BONUS)
+
+OBJS = ${TOUT:.c=.o}
 
 all:		$(NAME)
 
@@ -61,4 +71,5 @@ fclean:		clean
 
 re:			fclean all
 
+bonus:		$()
 .PHONY:		all clean fclean rerm 
