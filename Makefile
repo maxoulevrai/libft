@@ -1,75 +1,45 @@
-NAME	= libft.a
-CC		= cc
-CFLAGS	= -Wall -Wextra -Werror
-AR = ar rcs
-RM = rm -f
+LIB = libft.a
+CC = gcc
+CFLAGS = -Wall -Wextra -Werror
 
-FILES	=	ft_atoi \
-			ft_bzero \
-			ft_calloc \
-			ft_isalnum \
-			ft_isalpha \
-			ft_isascii \
-			ft_isdigit \
-			ft_isprint \
-			ft_itoa \
-			ft_memchr \
-			ft_memcmp \
-			ft_memcpy \
-			ft_memmove \
-			ft_memset \
-			ft_putchar_fd \
-			ft_putendl_fd \
-			ft_putnbr_fd \
-			ft_putstr_fd \
-			ft_split \
-			ft_strlcat \
-			ft_strchr \
-			ft_strdup \
-			ft_striteri \
-			ft_strjoin \
-			ft_strlcat \
-			ft_strlcpy \
-			ft_strlen \
-			ft_strmapi \
-			ft_strncmp \
-			ft_strnstr \
-			ft_strrchr \
-			ft_strtrim \
-			ft_substr \
-			ft_tolower \
-			ft_toupper \
+LIBC =	ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_isalpha.c \
+		ft_isascii.c ft_isdigit.c ft_isprint.c ft_memchr.c \
+		ft_memcmp.c ft_memcpy.c ft_memmove.c ft_memset.c ft_strchr.c \
+		ft_strdup.c ft_strlcat.c ft_strlcpy.c ft_strlen.c ft_strncmp.c \
+		ft_strnstr.c ft_strrchr.c ft_tolower.c ft_toupper.c
 
-BONUS_FILES	=	ft_lstadd_back \
-				ft_lstadd_front \
-				ft_lstlast \
-				ft_lstnew \
-				ft_lstsize \
+ADDITIONAL =	ft_itoa.c ft_putchar_fd.c ft_putendl_fd.c ft_putnbr_fd.c ft_putstr_fd.c \
+				ft_split.c ft_strjoin.c ft_strmapi.c ft_strtrim.c ft_substr.c ft_striteri.c
 
-SRCS_DIR = ./
-SRCS = $(addprefix $(SRCS_DIR), $(addsuffix .c, $(FILES)))
-BONUS_DIR = ./bonus/
-BONUS = $(addprefix $(BONUS_DIR), $(addsuffix .c, $(BONUS_FILES)))
+BONUS =	ft_lstadd_back_bonus.c ft_lstadd_front_bonus.c ft_lstclear_bonus.c \
+		ft_lstdelone_bonus.c ft_lstiter_bonus.c ft_lstlast_bonus.c \
+		ft_lstmap_bonus.c ft_lstnew_bonus.c ft_lstsize_bonus.c
 
-TOUT = $(SRCS) $(BONUS)
+SRCS = $(LIBC) $(ADDITIONAL)
+SRCSALL = $(LIBC) $(ADDITIONAL) $(BONUS)
 
-OBJS = ${TOUT:.c=.o}
+OBJS = $(SRCS:.c=.o)
+OBJSALL = $(SRCSALL:.c=.o)
 
-all:		$(NAME)
+.c.o:
+		${CC} ${CFLAGS} -c $< -o $@
 
-$(NAME):	$(OBJS)
-			$(AR) $@ $^
+${LIB}: ${OBJS}
+		ar -rsc ${LIB} ${OBJS}
 
-%.o: %.c
-			$(CC) $(CFLAGS) -c $< -o $@
+bonus: fclean ${OBJSALL}
+		ar -rsc ${LIB} ${OBJSALL}
+
+all: ${LIB}
 
 clean:
-			$(RM) $(OBJS)
+		rm -f ${OBJSALL}
 
-fclean:		clean
-			$(RM) $(NAME)
+fclean: clean
+		rm -f ${LIB}
 
-re:			fclean all
+re: fclean all
 
-bonus:		$()
-.PHONY:		all clean fclean rerm 
+${OBJS}: libft.h
+
+.PHONY: all clean fclean re bonus
