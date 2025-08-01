@@ -1,53 +1,94 @@
-NAME	= libft.a
-CC		= cc
-CFLAGS	= -Wall -Wextra -Werror -g
+LIB = libft.a
+CC = cc
+CFLAGS = -Wall -Werror -Wextra -g -MMD #-fsanitize=address
 AR = ar rcs
-RM = rm -f
+RM = rm -rf
 
-LIBC =	ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_isalpha.c \
-		ft_isascii.c ft_isdigit.c ft_isprint.c ft_memchr.c \
-		ft_memcmp.c ft_memcpy.c ft_memmove.c ft_memset.c ft_strchr.c \
-		ft_strdup.c ft_strlcat.c ft_strlcpy.c ft_strlen.c ft_strncmp.c \
-		ft_strnstr.c ft_strrchr.c ft_tolower.c ft_toupper.c
+LIB_DIR = srcs/
+BUILD_DIR = build/
 
-ADDITIONAL =	ft_itoa.c ft_putchar_fd.c ft_putendl_fd.c ft_putnbr_fd.c ft_putstr_fd.c \
-				ft_split.c ft_strjoin.c ft_strmapi.c ft_strtrim.c ft_substr.c ft_striteri.c
+LIB_SRCS = $(LIB_DIR)ft_isalpha.c \
+			$(LIB_DIR)ft_abs.c \
+			$(LIB_DIR)ft_isdigit.c \
+			$(LIB_DIR)ft_isalnum.c \
+			$(LIB_DIR)ft_isascii.c \
+			$(LIB_DIR)ft_isprint.c \
+			$(LIB_DIR)ft_strlen.c \
+			$(LIB_DIR)ft_memset.c \
+			$(LIB_DIR)ft_bzero.c \
+			$(LIB_DIR)ft_memcpy.c \
+			$(LIB_DIR)ft_memmove.c \
+			$(LIB_DIR)ft_strcmp.c \
+			$(LIB_DIR)ft_strlcpy.c \
+			$(LIB_DIR)ft_strlcat.c \
+			$(LIB_DIR)ft_toupper.c \
+			$(LIB_DIR)ft_tolower.c \
+			$(LIB_DIR)ft_strchr.c \
+			$(LIB_DIR)ft_strrchr.c \
+			$(LIB_DIR)ft_strncmp.c \
+			$(LIB_DIR)ft_memchr.c \
+			$(LIB_DIR)ft_memcmp.c \
+			$(LIB_DIR)ft_strnstr.c \
+			$(LIB_DIR)ft_atoi.c \
+			$(LIB_DIR)ft_atol.c \
+			$(LIB_DIR)ft_calloc.c \
+			$(LIB_DIR)ft_strdup.c \
+			$(LIB_DIR)ft_substr.c \
+			$(LIB_DIR)ft_strjoin.c \
+			$(LIB_DIR)ft_strtrim.c \
+			$(LIB_DIR)ft_split.c \
+			$(LIB_DIR)ft_itoa.c \
+			$(LIB_DIR)ft_strmapi.c \
+			$(LIB_DIR)ft_striteri.c \
+			$(LIB_DIR)ft_putchar_fd.c \
+			$(LIB_DIR)ft_putstr_fd.c \
+			$(LIB_DIR)ft_putendl_fd.c \
+			$(LIB_DIR)ft_putnbr_fd.c \
+			$(LIB_DIR)word_count.c \
+			$(LIB_DIR)free_dtab.c \
+			$(LIB_DIR)ft_strcat.c \
+			$(LIB_DIR)get_dtab_len.c \
+			$(LIB_DIR)word_len.c \
+			$(LIB_DIR)ft_lstnew.c \
+			$(LIB_DIR)ft_lstadd_front.c \
+			$(LIB_DIR)ft_lstsize.c \
+			$(LIB_DIR)ft_lstlast.c \
+			$(LIB_DIR)ft_lstadd_back.c \
+			$(LIB_DIR)ft_lstdelone.c \
+			$(LIB_DIR)ft_lstclear.c \
+			$(LIB_DIR)ft_lstiter.c \
+			$(LIB_DIR)ft_lstmap.c
 
-BONUS =	ft_lstadd_back_bonus.c ft_lstadd_front_bonus.c ft_lstclear_bonus.c \
-		ft_lstdelone_bonus.c ft_lstiter_bonus.c ft_lstlast_bonus.c \
-		ft_lstmap_bonus.c ft_lstnew_bonus.c ft_lstsize_bonus.c
+LIB_OBJS = $(LIB_SRCS:%.c=$(BUILD_DIR)%.o)
+LIB_DEPS = $(LIB_OBJS:.o=.d)
 
-SRCS_LIST = $(LIBC) $(ADDITIONAL)
-SRCS_LIST_ALL = $(LIBC) $(ADDITIONAL) $(BONUS)
+$(LIB_OBJS): | $(BUILD_DIR)
 
-SRCS_DIR = ./
-BONUS_DIR = ./bonus/
+$(BUILD_DIR):
+	@mkdir -p $(BUILD_DIR)
 
-OBJS = $(SRCS:.c=.o)
-OBJSALL = $(SRCSALL:.c=.o)
+$(BUILD_DIR)%.o: %.c
+	@mkdir -p $(dir $@)
+	@echo "\033[33mCompiling $<\033[0m"
+	@$(CC) $(CFLAGS) -c $< -o $@
 
-SRCS = $(addprefix $(SRCS_DIR), $(addsuffix .c, $(SRCS_LIST)))
-SRCS_ALL = $(addprefix $(SRCS_DIR) $(BONUS_DIR), $(addsuffix .c, $(SRCS_LIST_ALL)))
+lib: $(LIB)
 
+$(LIB): $(LIB_OBJS)
+	@echo "\033[32mArchiving $@\033[0m"
+	@$(AR) $@ $^
+	@echo "\033[32mArchive complete\033[0m"
 
+lib_clean:
+	@echo "\033[31mCleaning library object files\033[0m"
+	@$(RM) $(BUILD_DIR)
+	
+lib_fclean: lib_clean
+	@echo "\033[31mCleaning library archive\033[0m"
+	@$(RM) $(LIB)
 
-all:		$(NAME)
+re_lib: lib_fclean lib
 
-$(NAME):	$(OBJS)
-			$(AR) $@ $^
+.PHONY: lib lib_clean lib_fclean re_lib
 
-%.o: %.c
-			$(CC) $(CFLAGS) -c $< -o $@
-
-clean:
-			$(RM) $(OBJS)
-
-fclean:		clean
-			$(RM) $(NAME)
-
-re:			fclean all
-
-# bonus:	fclean ${OBJSALL}
-# 		ar -rsc ${LIB} ${OBJSALL}
-
-.PHONY: all clean fclean re bonus
+-include $(LIB_DEPS)
