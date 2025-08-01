@@ -1,8 +1,12 @@
 LIB = libft.a
-CC = cc
-CFLAGS = -Wall -Werror -Wextra -g -MMD #-fsanitize=address
-AR = ar rcs
-RM = rm -rf
+
+RED				= \e[31m
+GREEN			= \e[32m
+YELLOW			= \e[33m
+BLUE			= \e[34m
+MAGENTA			= \e[35m
+CYAN			= \e[36m
+RESET			= \e[m
 
 LIB_DIR = srcs/
 BUILD_DIR = build/
@@ -60,7 +64,11 @@ LIB_SRCS = $(LIB_DIR)ft_isalpha.c \
 			$(LIB_DIR)ft_lstmap.c
 
 LIB_OBJS = $(LIB_SRCS:%.c=$(BUILD_DIR)%.o)
-LIB_DEPS = $(LIB_OBJS:.o=.d)
+
+CC = cc
+CFLAGS = -Wall -Werror -Wextra -g #-fsanitize=address
+AR = ar rcs
+RM = rm -rf
 
 $(LIB_OBJS): | $(BUILD_DIR)
 
@@ -69,26 +77,25 @@ $(BUILD_DIR):
 
 $(BUILD_DIR)%.o: %.c
 	@mkdir -p $(dir $@)
-	@echo "\033[33mCompiling $<\033[0m"
+	@echo "$(YELLOW)Compiling $<$(RESET)"
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 lib: $(LIB)
 
 $(LIB): $(LIB_OBJS)
-	@echo "\033[32mArchiving $@\033[0m"
+	@echo "$(GREEN)Archiving $@$(RESET)"
 	@$(AR) $@ $^
-	@echo "\033[32mArchive complete\033[0m"
+	@echo "$(GREEN)Archive complete$(RESET)"
 
 lib_clean:
-	@echo "\033[31mCleaning library object files\033[0m"
+	@echo "$(RED)Cleaning library object files$(RESET)"
 	@$(RM) $(BUILD_DIR)
 	
 lib_fclean: lib_clean
-	@echo "\033[31mCleaning library archive\033[0m"
+	@echo "$(RED)Cleaning library archive$(RESET)"
 	@$(RM) $(LIB)
 
 re_lib: lib_fclean lib
 
 .PHONY: lib lib_clean lib_fclean re_lib
 
--include $(LIB_DEPS)
