@@ -6,7 +6,7 @@
 /*   By: maleca <maleca@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 12:58:33 by maleca            #+#    #+#             */
-/*   Updated: 2025/08/01 17:33:57 by maleca           ###   ########.fr       */
+/*   Updated: 2025/10/24 18:44:36 by maleca           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,12 @@ typedef struct s_list
 	void			*content;
 	struct s_list	*next;
 }				t_list;
+
+typedef struct s_point
+{
+	int	x;
+	int	y;
+}		t_point;
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
@@ -45,6 +51,7 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *str, int fd);
 void	ft_putendl_fd(char *str, int fd);
 void	ft_putnbr_fd(int n, int fd);
+void	flood_fill(char **tab, t_point size, t_point begin);
 void	ft_striteri(char *src, void (*f)(unsigned int, char*));
 void	*ft_calloc(size_t nmemb, size_t size);
 void	*ft_memset(void *ptr, int val, size_t siz);

@@ -13,8 +13,7 @@ PRINTF_DIR = srcs/printf/
 LIB_DIR = srcs/libft/
 BUILD_DIR = build/
 
-GNL_SRCS = $(GNL_DIR)get_next_line_utils.c \
-			$(GNL_DIR)get_next_line.c
+GNL_SRCS = $(GNL_DIR)get_next_line.c
 
 PRINTF_SRCS = $(PRINTF_DIR)ft_printf.c \
 			$(PRINTF_DIR)utils/ft_putaddyf.c \
@@ -73,7 +72,8 @@ LIB_SRCS = $(LIB_DIR)ft_abs.c \
 			$(LIB_DIR)ft_lstdelone.c \
 			$(LIB_DIR)ft_lstclear.c \
 			$(LIB_DIR)ft_lstiter.c \
-			$(LIB_DIR)ft_lstmap.c
+			$(LIB_DIR)ft_lstmap.c \
+			$(LIB_DIR)flood_fill.c 
 
 ALL_SRCS = $(LIB_SRCS) $(GNL_SRCS) $(PRINTF_SRCS)
 LIB_OBJS = $(ALL_SRCS:%.c=$(BUILD_DIR)%.o)
